@@ -47,7 +47,6 @@ function App() {
 
   return (
     <div className="page">
-      <>
         <Header />
         <Main
           onCardClick={handleCardClick}
@@ -71,8 +70,8 @@ function App() {
             name="name"
             type="text" 
             placeholder="Имя пользователя" 
-            minlength="2" 
-            maxlength="40" 
+            minLength="2" 
+            maxLength="40" 
             required
             autoFocus
           />
@@ -83,8 +82,8 @@ function App() {
             name="description"
             type="text"
             placeholder="О себе"
-            minlength="2"
-            maxlength="200"
+            minLength="2"
+            maxLength="200"
             required
             autoFocus
           />
@@ -104,8 +103,8 @@ function App() {
             name="name"
             type="text" 
             placeholder="Название" 
-            minlength="2" 
-            maxlength="30" 
+            minLength="2" 
+            maxLength="30" 
             required 
             autoFocus
           />
@@ -152,7 +151,6 @@ function App() {
           card={selectedCard}
           onClose={closeAllPopups}
         />
-      </>
     </div>
   );
 }

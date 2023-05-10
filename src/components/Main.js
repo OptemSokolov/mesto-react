@@ -11,16 +11,8 @@ function Main({onCardClick, onEditProfile, onAddPlace, onEditAvatar, onCardDelet
   const [userDescription, setUserDescription] = useState("...");
   const [userAvatar, setUserAvatar] = useState("#");
 
-  const cardsElements = cards.map((card) => (
-    <Card 
-    card={card} 
-    key={card.id} 
-    onCardClick={onCardClick} 
-    onCardDelete={ onCardDelete } />
-  ))
 
   useEffect(() => {
-    // Получим данные с сервера
     api.getUserInfo()
       .then((res) => {
         setUserName(res.name);
@@ -84,7 +76,13 @@ function Main({onCardClick, onEditProfile, onAddPlace, onEditAvatar, onCardDelet
       </section>
         <section className="cards">
         <ul className="cards__list">
-          {cardsElements}
+          {cards.map((card) => (
+            <Card 
+              card={card} 
+              key={card.id} 
+              onCardClick={onCardClick} 
+              onCardDelete={ onCardDelete } />
+          ))}
         </ul>
       </section>
     </main>
