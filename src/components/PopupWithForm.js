@@ -16,10 +16,11 @@ function PopupWithForm(props) {
         <form 
           className="popup__form"
           id={props.name}
-          name="form-profile"
+          name={props.name}
           autoComplete="off"
           method="get"
           noValidate
+          onSubmit={props.onSubmit}
         >
           {props.children}
           <button 
