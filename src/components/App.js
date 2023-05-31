@@ -7,7 +7,7 @@ import Header from './Header.js';
 import Main from './Main.js';
 import Footer from './Footer.js';
 
-import api from './utils/Api.js'
+import api from '../utils/Api.js'
 import ImagePopup from './ImagePopup.js';
 import EditProfilePopup from "./EditProfilePopup.js";
 import EditAvatarPopup from "./EditAvatarPopup.js";
@@ -111,6 +111,22 @@ function App() {
     setIsDeleteCardPopupOpen(false);
     setSelectedCard(null);
   }
+
+  const isOpen = isEditAvatarPopupOpen || isEditProfilePopupOpen || isAddPlacePopupOpen || selectedCard
+
+  useEffect(() => {
+    function closeByEscape(evt) {
+      if(evt.key === 'Escape') {
+        closeAllPopups();
+      }
+    }
+    if(isOpen) { 
+      document.addEventListener('keydown', closeByEscape);
+      return () => {
+        document.removeEventListener('keydown', closeByEscape);
+      }
+    }
+  }, [isOpen]) 
 
   function handleCardClick(card) {
     setSelectedCard(card);

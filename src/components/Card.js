@@ -23,7 +23,7 @@ function Card({card, onCardClick, onCardLike, onCardDelete}) {
   }
 
   return (
-    <li className="card" key={card._id}>
+    <li className="card">
       <button
         className={cardDeleteButtonClassName}
         type="button"
@@ -44,7 +44,7 @@ function Card({card, onCardClick, onCardLike, onCardDelete}) {
             type="button"
             aria-label='Лайк' 
             onClick={handleLikeClick}
-          ></button>
+          />
           <span className="card__like-sum">{card.likes.length}</span>
         </div>
       </div>

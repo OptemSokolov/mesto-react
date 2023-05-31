@@ -14,7 +14,7 @@ function ConfirmDeletePopup(props) {
       isOpen={props.isOpen}
       onClose={props.onClose}
       onSubmit={handleSubmit}
-    ></PopupWithForm>
+    />
   );
 }
 
